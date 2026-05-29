@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AESTHETICA — Architecture &amp; Interior Design Studio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+sans: ['Inter', 'sans-serif'],
+serif: ['Playfair Display', 'serif'],
+},
+colors: {
+beige: {
+50: '#FDFBF7',
+100: '#F9F6F0',
+200: '#EFECE3',
+300: '#E2DEC5',
+800: '#4A4736',
+},
+stone: {
+900: '#1C1B19',
+}
+}
+}
+}
+}
+</script>
+<style>
+/* Smooth transitions for interactive elements */
+.fade-in {
+animation: fadeIn 1.2s ease-out forwards;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+/* Lock body scroll helper */
+.overflow-hidden {
+overflow: hidden !important;
+}
+</style>
+</head>
+<body class="bg-beige-50 text-stone-900 font-sans antialiased selection:bg-beige-300">
+
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-[#FDFBF7]/90 backdrop-blur-md border-b border-beige-200">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="#" class="font-serif text-2xl tracking-widest font-semibold uppercase">Aesthetica</a>
+
+<!-- Desktop Menu -->
+<div class="hidden md:flex items-center space-x-10 text-sm tracking-widest uppercase font-medium">
+<a href="#about" class="hover:text-beige-800 transition-colors duration-300">About</a>
+<a href="#projects" class="hover:text-beige-800 transition-colors duration-300">Projects</a>
+<a href="#calculator" class="hover:text-beige-800 transition-colors duration-300">Estimate</a>
+<a href="#contacts" class="hover:text-beige-800 transition-colors duration-300">Contact</a>
+</div>
+
+<!-- Call to Action -->
+<div class="hidden md:block">
+<a href="#contacts" class="border border-stone-900 px-6 py-2.5 text-xs tracking-widest uppercase hover:bg-stone-900 hover:text-beige-50 transition-all duration-300">
+Start a Project
+</a>
+</div>
+
+<!-- Mobile Menu Toggle Button -->
+<button id="mobile-menu-btn" class="md:hidden flex flex-col justify-between h-5 w-6 focus:outline-none z-50" aria-label="Open menu">
+<span class="h-[1px] w-full bg-stone-900 transition-all duration-300 origin-left" id="line1"></span>
+<span class="h-[1px] w-full bg-stone-900 transition-all duration-300" id="line2"></span>
+<span class="h-[1px] w-full bg-stone-900 transition-all duration-300 origin-left" id="line3"></span>
+</button>
+</div>
+</nav>
+
+<!-- Dropdown Mobile Menu (Moved outside the header nav element to fix iOS backdrop-blur layout rendering bugs) -->
+<nav id="mobile-menu" class="hidden md:hidden fixed inset-0 top-20 bg-[#FDFBF7] z-40 px-6 py-12 flex flex-col justify-between border-b border-beige-200 shadow-xl" style="background-color: #FDFBF7;">
+<div class="flex flex-col space-y-8 text-2xl font-serif tracking-wide pt-4">
+<a href="#about" onclick="toggleMenu()" class="hover:translate-x-2 transition-transform duration-300">About Studio</a>
+<a href="#projects" onclick="toggleMenu()" class="hover:translate-x-2 transition-transform duration-300">Our Projects</a>
+<a href="#calculator" onclick="toggleMenu()" class="hover:translate-x-2 transition-transform duration-300">Cost Calculator</a>
+<a href="#contacts" onclick="toggleMenu()" class="hover:translate-x-2 transition-transform duration-300">Get in Touch</a>
+</div>
+<div class="border-t border-beige-200 pt-8">
+<p class="text-sm text-stone-500 mb-4">Direct Contact</p>
+<a href="tel:+12125550199" class="text-xl font-medium tracking-wider">+1 (212) 555-0199</a>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<section class="min-h-screen pt-20 flex flex-col justify-center relative overflow-hidden bg-beige-100">
+<!-- Decorative subtle background element -->
+<div class="absolute right-0 top-0 w-1/2 h-full bg-beige-200/50 hidden lg:block -skew-x-12 origin-top-right"></div>
+
+<div class="max-w-7xl mx-auto px-6 py-20 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8 fade-in">
+<span class="text-xs uppercase tracking-[0.25em] text-beige-800 font-semibold block">Architectural &amp; Interior Design Studio</span>
+<h1 class="font-serif text-5xl md:text-7xl leading-[1.1] text-stone-900 font-light">
+Spaces that <br>breathe <span class="italic font-normal">tranquility</span>.
+</h1>
+<p class="text-stone-600 max-w-xl text-lg leading-relaxed font-light">
+We design pure, contemporary interiors and architectural concepts. No unnecessary noise—only precise proportions, raw natural textures, and abundant daylight.
+</p>
+<div class="pt-4 flex flex-col sm:flex-row gap-4">
+<a href="#projects" class="bg-stone-900 text-beige-50 px-8 py-4 text-sm tracking-widest uppercase hover:bg-stone-800 transition-colors duration-300 text-center">
+Explore Portfolio
+</a>
+<a href="#calculator" class="border border-stone-300 hover:border-stone-900 px-8 py-4 text-sm tracking-widest uppercase transition-colors duration-300 text-center">
+Calculate Estimate
+</a>
+</div>
+</div>
+
+<!-- Hero Image Frame with Unsplash Minimalist Architecture -->
+<div class="lg:col-span-5 relative w-full h-[400px] md:h-[500px] overflow-hidden group rounded-lg shadow-sm">
+<div class="w-full h-full bg-stone-900 relative">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Pine Forest Villa Architectural Design" class="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x1000/EAE6DF/1C1B19?text=Modern+Villa'">
+<div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-6 rounded">
+<p class="font-serif text-lg">Pine Forest Villa</p>
+<p class="text-xs text-stone-500 uppercase tracking-wider mt-1">Architectural Concept, 2026</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About / Philosophy Section -->
+<section id="about" class="py-24 bg-beige-50 border-b border-beige-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-baseline">
+<div class="lg:col-span-4">
+<span class="text-xs uppercase tracking-[0.25em] text-beige-800 font-semibold block mb-2">Philosophy</span>
+<h2 class="font-serif text-3xl md:text-4xl text-stone-900 font-light">Our Approach to Space</h2>
+</div>
+<div class="lg:col-span-8 space-y-6 text-stone-600 text-lg font-light leading-relaxed">
+<p>
+We believe that exceptional design doesn’t need to shout. True luxury resides in silence, organic materials that age gracefully, and meticulously planned spatial scenarios tailored to your everyday routines.
+</p>
+<p>
+In our designs, you won’t encounter aggressive colors, synthetic materials, or purely decorative additions. We prioritize warm wood, raw tactile stone, microcement, and the subtle choreography of natural lighting.
+</p>
+</div>
+</div>
+
+<!-- Core Principles Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+<div class="p-8 border border-beige-200 bg-beige-100/50 hover:bg-beige-100 rounded-lg transition-colors duration-300">
+<span class="font-serif text-3xl text-beige-800 mb-6 block">01</span>
+<h3 class="text-lg font-medium mb-3">Honest Materials</h3>
+<p class="text-stone-600 text-sm font-light leading-relaxed">
+We spec solid timber, natural marble, raw slate, structural metals, and fine organic linen. Finishes that feel genuine to the touch.
+</p>
+</div>
+<div class="p-8 border border-beige-200 bg-beige-100/50 hover:bg-beige-100 rounded-lg transition-colors duration-300">
+<span class="font-serif text-3xl text-beige-800 mb-6 block">02</span>
+<h3 class="text-lg font-medium mb-3">Bespoke Ergonomics</h3>
+<p class="text-stone-600 text-sm font-light leading-relaxed">
+We design customized, integrated millwork and build complex, glare-free, multi-tiered warm lighting structures.
+</p>
+</div>
+<div class="p-8 border border-beige-200 bg-beige-100/50 hover:bg-beige-100 rounded-lg transition-colors duration-300">
+<span class="font-serif text-3xl text-beige-800 mb-6 block">03</span>
+<h3 class="text-lg font-medium mb-3">Full Turnkey Execution</h3>
+<p class="text-stone-600 text-sm font-light leading-relaxed">
+We don’t just hand over drawings. We coordinate construction, material supply, and artistic oversight down to the finest final details.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-24 bg-beige-100">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<span class="text-xs uppercase tracking-[0.25em] text-beige-800 font-semibold block mb-2">Portfolio</span>
+<h2 class="font-serif text-3xl md:text-4xl text-stone-900 font-light">Selected Works</h2>
+</div>
+
+<!-- Category Filters -->
+<div class="flex flex-wrap gap-4 mt-6 md:mt-0 text-xs tracking-wider uppercase font-medium">
+<button onclick="filterProjects('all')" class="project-filter-btn px-4 py-2 border-b-2 border-stone-900 text-stone-900" id="filter-all">All</button>
+<button onclick="filterProjects('architecture')" class="project-filter-btn px-4 py-2 border-b-2 border-transparent text-stone-500 hover:text-stone-900" id="filter-architecture">Architecture</button>
+<button onclick="filterProjects('interior')" class="project-filter-btn px-4 py-2 border-b-2 border-transparent text-stone-500 hover:text-stone-900" id="filter-interior">Interiors</button>
+</div>
+</div>
+
+<!-- Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
+
+<!-- Project 1: Interior Design -->
+<div class="project-card group" data-category="interior">
+<div class="h-[400px] overflow-hidden bg-stone-200 relative rounded-lg shadow-sm">
+<img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Wabi-Sabi Living Room Interior Design" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/EAE6DF/1C1B19?text=Wabi-Sabi'">
+<div class="absolute inset-0 bg-stone-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="mt-4 flex justify-between items-baseline">
+<h3 class="font-serif text-xl font-light">Wabi-Sabi Haven Apartment</h3>
+<span class="text-xs text-stone-500 uppercase tracking-widest">Interior / 120 m²</span>
+</div>
+</div>
+
+<!-- Project 2: Architecture -->
+<div class="project-card group" data-category="architecture">
+<div class="h-[400px] overflow-hidden bg-stone-200 relative rounded-lg shadow-sm">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Modern lakefront architecture concept" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/EAE6DF/1C1B19?text=Modern+Retreat'">
+<div class="absolute inset-0 bg-stone-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="mt-4 flex justify-between items-baseline">
+<h3 class="font-serif text-xl font-light">Lakeview Architecture Retreat</h3>
+<span class="text-xs text-stone-500 uppercase tracking-widest">Architecture / 450 m²</span>
+</div>
+</div>
+
+<!-- Project 3: Interior Design -->
+<div class="project-card group" data-category="interior">
+<div class="h-[400px] overflow-hidden bg-stone-200 relative rounded-lg shadow-sm">
+<img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Minimalist luxury open kitchen design" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/EAE6DF/1C1B19?text=Minimalist+Kitchen'">
+<div class="absolute inset-0 bg-stone-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="mt-4 flex justify-between items-baseline">
+<h3 class="font-serif text-xl font-light">Minimalist Parkside Kitchen</h3>
+<span class="text-xs text-stone-500 uppercase tracking-widest">Interior / 45 m²</span>
+</div>
+</div>
+
+<!-- Project 4: Architecture -->
+<div class="project-card group" data-category="architecture">
+<div class="h-[400px] overflow-hidden bg-stone-200 relative rounded-lg shadow-sm">
+<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Modern luxury forest residence exterior" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/EAE6DF/1C1B19?text=Forest+Residence'">
+<div class="absolute inset-0 bg-stone-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="mt-4 flex justify-between items-baseline">
+<h3 class="font-serif text-xl font-light">Sleek Concrete Villa</h3>
+<span class="text-xs text-stone-500 uppercase tracking-widest">Architecture / 680 m²</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Interactive Calculator Section -->
+<section id="calculator" class="py-24 bg-beige-50 border-y border-beige-200">
+<div class="max-w-4xl mx-auto px-6">
+<div class="text-center mb-16">
+<span class="text-xs uppercase tracking-[0.25em] text-beige-800 font-semibold block mb-2">Cost Calculator</span>
+<h2 class="font-serif text-3xl md:text-4xl text-stone-900 font-light">Instant Project Estimation</h2>
+<p class="text-stone-500 mt-3 max-w-lg mx-auto font-light text-sm">Select your ideal parameters to acquire a realistic initial estimate of your architectural design fees and development times.</p>
+</div>
+
+<div class="bg-beige-100 p-8 md:p-12 border border-beige-200 rounded-lg shadow-sm">
+<form id="calc-form" class="space-y-8" oninput="calculateTotal()">
+<!-- Project Type Selection -->
+<div>
+<label class="block text-xs uppercase tracking-wider font-semibold text-stone-700 mb-4">1. Project Direction</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="border border-beige-300 hover:border-stone-950 p-4 bg-beige-50 flex items-center justify-between cursor-pointer rounded transition-colors duration-300">
+<span class="flex flex-col">
+<span class="font-medium text-stone-900">Interior Design Only</span>
+<span class="text-xs text-stone-500 mt-1">from $60 / m²</span>
+</span>
+<input type="radio" name="project-type" value="60" checked="" class="accent-stone-900 w-4 h-4">
+</label>
+
+<label class="border border-beige-300 hover:border-stone-950 p-4 bg-beige-50 flex items-center justify-between cursor-pointer rounded transition-colors duration-300">
+<span class="flex flex-col">
+<span class="font-medium text-stone-900">Full Architectural Design</span>
+<span class="text-xs text-stone-500 mt-1">from $90 / m²</span>
+</span>
+<input type="radio" name="project-type" value="90" class="accent-stone-900 w-4 h-4">
+</label>
+</div>
+</div>
+
+<!-- Area Range Slider -->
+<div>
+<div class="flex justify-between items-baseline mb-3">
+<label for="square-range" class="block text-xs uppercase tracking-wider font-semibold text-stone-700">2. Project Area size</label>
+<span class="text-lg font-serif"><span id="square-val">100</span> m²</span>
+</div>
+<input type="range" id="square-range" min="30" max="500" step="1" value="100" class="w-full h-1 bg-beige-200 rounded-lg appearance-none cursor-pointer accent-stone-900">
+<div class="flex justify-between text-xs text-stone-400 mt-2">
+<span>30 m²</span>
+<span>500 m²</span>
+</div>
+</div>
+
+<!-- Add-on Options -->
+<div>
+<label class="block text-xs uppercase tracking-wider font-semibold text-stone-700 mb-4">3. Premium Add-on Services</label>
+<div class="space-y-3">
+<label class="flex items-center space-x-3 cursor-pointer">
+<input type="checkbox" id="opt-supervision" value="25" class="accent-stone-900 w-4 h-4">
+<span class="text-sm text-stone-700">Author's Supervision / Project Oversight (+$25 / m²)</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer">
+<input type="checkbox" id="opt-visualization" value="15" class="accent-stone-900 w-4 h-4">
+<span class="text-sm text-stone-700">Photorealistic 3D Virtual Tours (+$15 / m²)</span>
+</label>
+</div>
+</div>
+</form>
+
+<!-- Calculation Summary Block -->
+<div class="mt-12 pt-8 border-t border-beige-300/60 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-center md:text-left">
+<p class="text-xs uppercase tracking-widest text-stone-400 mb-1">Estimated Project Fee</p>
+<p class="text-3xl md:text-4xl font-serif text-stone-900" id="total-price">$6,000</p>
+<p class="text-xs text-stone-400 mt-1">Approximate execution time: <span id="project-timeline">45</span> business days</p>
+</div>
+<a href="#contacts" class="bg-stone-900 text-beige-50 px-8 py-4 text-xs tracking-widest uppercase hover:bg-stone-800 transition-colors duration-300 rounded whitespace-nowrap">
+Discuss this Project Plan
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact and Inquiries Section -->
+<section id="contacts" class="py-24 bg-beige-50">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+<!-- Studio Location Details -->
+<div class="lg:col-span-5 space-y-8">
+<div>
+<span class="text-xs uppercase tracking-[0.25em] text-beige-800 font-semibold block mb-2">Connect</span>
+<h2 class="font-serif text-3xl md:text-4xl text-stone-900 font-light">Let's Shape Your Vision</h2>
+</div>
+<p class="text-stone-600 font-light leading-relaxed">
+We are delighted to welcome guests to our workspace. Grab a slow drip coffee, browse our stone sample catalogues, and brainstorm details about your potential home or workspace.
+</p>
+
+<div class="space-y-4 pt-4 border-t border-beige-200">
+<div>
+<span class="text-xs uppercase text-stone-400 tracking-wider">Showroom Address</span>
+<p class="text-stone-800 mt-1 font-light"><br></p>
+</div>
+<div>
+<span class="text-xs uppercase text-stone-400 tracking-wider">Direct Phone</span>
+<p class="text-stone-800 mt-1 font-light"><a href="tel:+12125550199" class="hover:text-beige-800 transition-colors"></a></p>
+</div>
+<div>
+<span class="text-xs uppercase text-stone-400 tracking-wider">Inquiries Mail</span>
+<p class="text-stone-800 mt-1 font-light"><a href="mailto:hello@aesthetica.design" class="hover:text-beige-800 transition-colors"></a></p>
+</div>
+</div>
+</div>
+
+<!-- Premium Form Interface -->
+<div class="lg:col-span-7 bg-beige-100 p-8 md:p-12 border border-beige-200 rounded-lg shadow-sm">
+<h3 class="font-serif text-2xl font-light mb-6">Send an Inquiry</h3>
+
+<form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label for="form-name" class="block text-xs uppercase tracking-wider text-stone-600 mb-2">Your Name</label>
+<input type="text" id="form-name" required="" class="w-full bg-beige-50 border border-beige-200 focus:border-stone-900 focus:outline-none p-3 text-sm font-light transition-colors rounded">
+</div>
+<div>
+<label for="form-phone" class="block text-xs uppercase tracking-wider text-stone-600 mb-2">Phone / WhatsApp</label>
+<input type="tel" id="form-phone" required="" class="w-full bg-beige-50 border border-beige-200 focus:border-stone-900 focus:outline-none p-3 text-sm font-light transition-colors rounded" placeholder="+1 (___) ___-____">
+</div>
+</div>
+<div>
+<label for="form-msg" class="block text-xs uppercase tracking-wider text-stone-600 mb-2">Briefly describe your property or concept ideas</label>
+<textarea id="form-msg" rows="4" class="w-full bg-beige-50 border border-beige-200 focus:border-stone-900 focus:outline-none p-3 text-sm font-light transition-colors rounded" placeholder="E.g., Penthouse loft in London, 140 sqm, looking for a warm minimalist layout with natural ash wood finishings."></textarea>
+</div>
+
+<button type="submit" class="w-full bg-stone-900 text-beige-50 py-4 text-xs tracking-widest uppercase hover:bg-stone-800 transition-colors duration-300 rounded">
+Submit Inquiry
+</button>
+</form>
+
+<!-- Custom Elegant Success Notice -->
+<div id="success-modal" class="hidden mt-6 p-4 bg-stone-900 text-beige-50 text-center rounded">
+<h4 class="font-serif text-lg mb-1">Thank you! Your details were sent.</h4>
+<p class="text-xs text-beige-200 font-light">Our lead design planner will contact you via your preferred channels within 1 business day.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer Section -->
+<footer class="bg-stone-900 text-beige-50 py-12 border-t border-stone-800">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-serif text-xl tracking-widest uppercase">Aesthetica</p>
+<p class="text-xs text-stone-400 font-light">© 2026 AESTHETICA Architectural Design Bureau. All rights reserved.</p>
+<div class="flex space-x-6 text-xs uppercase tracking-widest text-stone-300">
+<a href="#" class="hover:text-white transition-colors">Instagram</a>
+<a href="#" class="hover:text-white transition-colors">Pinterest</a>
+</div>
+</div>
+</footer>
+
+<!-- Javascript Client Side Operations -->
+<script>
+// Responsive Menu Operations
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const line1 = document.getElementById('line1');
+const line2 = document.getElementById('line2');
+const line3 = document.getElementById('line3');
+
+function toggleMenu() {
+const isHidden = mobileMenu.classList.toggle('hidden');
+
+// Animate Hamburger to Close Symbol
+line1.classList.toggle('rotate-45');
+line1.classList.toggle('translate-y-[6px]');
+line2.classList.toggle('opacity-0');
+line3.classList.toggle('-rotate-45');
+line3.classList.toggle('-translate-y-[6px]');
+
+// Body scroll locking to prevent elements underneath from scrolling when menu is open
+if (!isHidden) {
+document.body.classList.add('overflow-hidden');
+} else {
+document.body.classList.remove('overflow-hidden');
+}
+}
+
+mobileMenuBtn.addEventListener('click', toggleMenu);
+
+// Real-time Estimation Calculation Method
+function calculateTotal() {
+const projectTypeInput = document.querySelector('input[name="project-type"]:checked');
+const squareRange = document.getElementById('square-range');
+const squareVal = document.getElementById('square-val');
+const optSupervision = document.getElementById('opt-supervision');
+const optVisualization = document.getElementById('opt-visualization');
+
+const totalPriceText = document.getElementById('total-price');
+const projectTimelineText = document.getElementById('project-timeline');
+
+const square = parseInt(squareRange.value);
+squareVal.textContent = square;
+
+let basePricePerMeter = parseInt(projectTypeInput.value);
+
+if (optSupervision.checked) {
+basePricePerMeter += parseInt(optSupervision.value);
+}
+if (optVisualization.checked) {
+basePricePerMeter += parseInt(optVisualization.value);
+}
+
+const total = square * basePricePerMeter;
+totalPriceText.textContent = '$' + total.toLocaleString('en-US');
+
+// Rough timeline forecasting algorithm
+let days = Math.ceil(30 + (square / 10));
+projectTimelineText.textContent = days;
+}
+
+// Project Filter Mechanics
+function filterProjects(category) {
+const cards = document.querySelectorAll('.project-card');
+const buttons = document.querySelectorAll('.project-filter-btn');
+
+// Restore defaults to all tags
+buttons.forEach(btn => {
+btn.classList.remove('border-stone-900', 'text-stone-900');
+btn.classList.add('border-transparent', 'text-stone-500');
+});
+
+// Set current active item selection styles
+const activeBtn = document.getElementById('filter-' + category);
+if (activeBtn) {
+activeBtn.classList.remove('border-transparent', 'text-stone-500');
+activeBtn.classList.add('border-stone-900', 'text-stone-900');
+}
+
+// Show or hide relevant matching portfolio assets
+cards.forEach(card => {
+if (category === 'all' || card.getAttribute('data-category') === category) {
+card.style.display = 'block';
+} else {
+card.style.display = 'none';
+}
+});
+}
+
+// Handle Contact Form submissions without using alert popups
+function handleFormSubmit(event) {
+event.preventDefault();
+const form = document.getElementById('contact-form');
+const modal = document.getElementById('success-modal');
+
+// Reset interface input controls
+form.reset();
+modal.classList.remove('hidden');
+
+// Automatically hide receipt alert block after 5s
+setTimeout(() => {
+modal.classList.add('hidden');
+}, 6000);
+}
+
+// Initialize estimates at startup load phase
+window.onload = function() {
+calculateTotal();
+}
+</script>
+
+</body></html>
